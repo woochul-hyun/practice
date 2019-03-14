@@ -1,3 +1,48 @@
-.strike {
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    /* width: 500px; */
+}
+
+ul li {
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 5px 10px;
+}
+
+.checked {
     text-decoration: line-through;
+    color: #c00;
+    font-weight: bold;
+}
+
+#donelist li {
+    border-buttom: 1px dashed #ccc;
+    margin-button: 4px;
+    height: 2.5em;
+    padding: 5px 10px;
+}
+
+#donelist li span {
+    font-size: 1.3em;
+    font-weight: 200;
+    padding-left: 10px;
+    vertical-align: middle;
+    cursor: default;
+    text-decoration: line-through;
+    color: #c00;
+}
+
+#editBtn {
+    float: right;
+}
+
+.listItemClass {
+    margin: 5px;
+}
+
+.removeBtnClass {
+    float: right;
+    margin-left: 3px;
 }
