@@ -1,0 +1,29 @@
+.display-4,
+.lead,
+.my-4,
+.pickerBtn {
+    text-align: center;
+}
+
+#gameCount {
+    width: 600px;
+}
+
+.gameForm {
+    text-align: center;
+}
+
+#pickedNumbers {
+    font-size: 25px;
+    text-align: center;
+}
+
+#resultList {
+    text-align: center;
+}
+
+#resultPage {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
