@@ -44,6 +44,7 @@ var sortedResultNumberArry = [];
 //    );
 //}
 function gameplay() {
+    var inputVal = document.getElementById("gameCount").value;
     sortedResultNumberArry = [];
     for (i = 0; i < document.getElementById("gameCount").value; i++) {
         var numbers = [];
@@ -63,6 +64,7 @@ function gameplay() {
         document.getElementById("pickedNumbers"),
         sortedResultNumberArry
     );
+    totalCostShow(document.getElementById("totalCost"), inputVal);
 }
 
 function resultShow(list, sortedResultNumberArry) {
@@ -75,4 +77,18 @@ function resultShow(list, sortedResultNumberArry) {
         list.appendChild(listItem);
         listItem.appendChild(resultItems);
     }
+}
+
+function totalCostShow(a, inputVal) {
+    document.querySelectorAll("#totalCostHtml").forEach(function(a) {
+        a.remove();
+    });
+
+    var totalCost = inputVal * 1000;
+
+    var totalCostHtml = document.createElement("p");
+    totalCostHtml.id = "totalCostHtml";
+    totalCostHtml.innerText = totalCost + "원 입니다.";
+
+    a.appendChild(totalCostHtml);
 }

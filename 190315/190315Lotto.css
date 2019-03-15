@@ -27,3 +27,8 @@
     font-size: 50px;
     font-weight: bold;
 }
+
+#totalCostHtml {
+    text-align: center;
+    font-size: 30px;
+}
