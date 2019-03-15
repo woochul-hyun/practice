@@ -20,16 +20,16 @@ function deleteItem() {
     removeEle.parentNode.removeChild(removeEle);
 }
 
-function updateItemStatus() {
-    var chId = this.id.replace("cb_", "");
-    var itemText = document.getElementById("item_" + chId);
-
-    if (this.checked) {
-        itemText.className = "checked";
-    } else {
-        itemText.className = "";
-    }
-}
+//function updateItemStatus() {
+//    var chId = this.id.replace("cb_", "");
+//    var itemText = document.getElementById("item_" + chId);
+//
+//    if (this.checked) {
+//        itemText.className = "checked";
+//    } else {
+//        itemText.className = "";
+//    }
+//}
 
 function addNewItem(list, itemText) {
     totalItems++;
@@ -49,6 +49,7 @@ function addNewItem(list, itemText) {
 
     var checkBox = document.createElement("input");
     checkBox.type = "checkBox";
+    checkBox.className = "cb_" + id;
     checkBox.id = "cb_" + totalItems;
     checkBox.onclick = moveItem;
 
@@ -105,7 +106,7 @@ inputText.onkeyup = function(event) {
 var donelist = document.getElementById("donelist");
 function moveItem() {
     var listItemId = this.id.replace("cb_", "");
-    var listItem = document.getElementById("li_" + listItemId);
+    var listItem = document.getElementById("item_" + listItemId);
 
     var chId = this.id.replace("cb_", "");
     var itemText = document.getElementById("item_" + chId);
@@ -115,7 +116,6 @@ function moveItem() {
     } else {
         itemText.className = "";
     }
-
     var listItemParentId = listItem.parentElement;
     if (listItemParentId == donelist) {
         todolist.appendChild(listItem);
