@@ -43,6 +43,30 @@
     margin-top: 2px;
 }
 
-.text {
+#text {
     height: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.div-panel {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+.div-control-panel {
+    width: 400px;
+    background-color: #535353;
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+}
+
+.div-control-name {
+    font-size: 20px;
+    margin-bottom: 5px;
 }
