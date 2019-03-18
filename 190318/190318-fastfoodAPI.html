@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
     <head>
-        <meta charset="utf-8" />
-        <title>Page Title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            media="screen"
-            href="190318-fastfoodAPI.css"
-        />
+        <meta charset="UTF-8" />
+        <title>패스트푸드점 찾기</title>
+
+        <link href="190318-fastfoodAPI.css" rel="stylesheet" />
     </head>
     <body>
         <div class="container">
             <div class="header">
                 <div class="title">패스트푸드점 찾기</div>
                 <div class="search">
-                    <input type="text" name="" id="text-search" />
+                    <input id="txt-search" type="text" />
                     <button class="btn-search">검색</button>
                 </div>
             </div>
@@ -34,7 +29,13 @@
                 <div class="item-addr"></div>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"
+        ></script>
+
         <script src="190318-fastfoodAPI.js"></script>
     </body>
 </html>
