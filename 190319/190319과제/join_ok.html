@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <style>
+            .item {
+                padding: 10px 20px;
+                border: 1px solid #d2d2d2;
+                border-radius: 14px;
+                margin-bottom: 10px;
+            }
+
+            .item-no {
+                display: inline-block;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 30px;
+                color: #a0a0a0;
+                vertical-align: middle;
+                min-width: 17px;
+            }
+
+            .item-detail {
+                display: inline-block;
+                margin-left: 10px;
+                vertical-align: middle;
+            }
+
+            .item-name {
+                font-size: 20px;
+            }
+
+            .item-addr {
+                font-size: 14px;
+                color: #909090;
+                margin-top: 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>회원 목록</h1>
+        <div class="list"></div>
+
+        <script type="text/javascript">
+            for (var i = 0; i < localStorage.length; i++) {
+                var content_string_load = localStorage.getItem(i + 1);
+                var content_dict = JSON.parse(content_string_load);
+                //var query = window.location.search.substr(1);
+                //var get_data = content_string_load.split(",");
+                //console.log(get_data);
+
+                var list = document.createElement("div");
+                list.innerText =
+                    "이름: " +
+                    content_dict.name +
+                    " 아이디: " +
+                    content_dict.idname +
+                    " 비밀번호: " +
+                    content_dict.userpass +
+                    " 이메일: " +
+                    content_dict.useremail +
+                    " 주소: " +
+                    content_dict.address;
+                document.body.appendChild(list);
+                // console.log(content_dict.name);
+            }
+        </script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+        <script src="join.js"></script>
+    </body>
+</html>
