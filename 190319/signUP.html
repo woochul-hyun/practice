@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    </head>
+    <body>
+        <body>
+            <form action="" method="" id="join_form">
+                <fieldset>
+                    <legend>Sign UP</legend>
+                    <p>
+                        <label for="name">이름</label>
+                        <input type="text" name="name" id="name" value="" />
+                    </p>
+                    <p>
+                        <label for="idname">아이디</label>
+                        <input type="text" name="idname" id="idname" value="" />
+                        <input
+                            type="button"
+                            name=""
+                            id=""
+                            value="아이디 중복 확인"
+                        />
+                    </p>
+                    <p>
+                        <label for="userpass">비밀번호</label>
+                        <input
+                            type="password"
+                            name="userpass"
+                            id="userpass"
+                            value=""
+                        />
+                    </p>
+                    <p>
+                        <label for="useremail">이메일</label>
+                        <input
+                            type="text"
+                            name="useremail"
+                            id="useremail"
+                            value=""
+                        />
+                    </p>
+
+                    <p>
+                        <label for="useremail">주소찾기</label>
+                        <input
+                            type="text"
+                            name="address"
+                            placeholder="도로명 주소 입력"
+                            id="address"
+                        />
+                        <a href="#" id="zipcode_search">우편번호 찾기</a>
+                    </p>
+                </fieldset>
+                <p>
+                    <button type="submit" id="btn_save">전송</button>
+                    <button id="btn_load">로드</button>
+                </p>
+            </form>
+        </body>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+        <script src="signUp.js"></script>
+    </body>
+</html>

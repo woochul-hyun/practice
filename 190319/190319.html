@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="190319.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="190319.js"></script>
+    </head>
+    <body>
+        <form action="" id="content_form">
+            <input type="text" name="content1" id="content1" />
+            <input type="text" name="content2" id="content2" />
+            <input type="text" name="content3" id="content3" />
+            <button id="btn_save">Save</button>
+            <button id="btn_load">Load</button>
+        </form>
+        <!-- <form>
+
+        <select name="fruit" id="select_test">
+            <option value="사과">1</option>
+            <option value="바나나">2</option>
+            <option value="딸기">3</option>
+            <option value="수박">4</option>
+        </select>
+
+        <button id="select_change">셀렉트 바꾸기</button><br><br>
+
+        <input type="radio" name="gender" value="male"> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other<br>
+        <button id="radio_change">라디오 바꾸기</button>
+
+    </form> -->
+
+        <!--  <script type="text/javascript">
+
+        $(function() {
+            $('#select_test').change(function() {
+                console.log($('#select_test').val());
+                console.log($('#select_test option:selected').text());
+            });
+
+            $('#select_change').click(function() {
+                //$('#select_test option:eq(2)').prop("selected",true);
+                $('#select_test').val("사과");
+                return false;
+            });
+
+            $('input[name="gender"]').change(function() {
+                //console.log($(this).val());
+                console.log($('input[name="gender"]:checked').val());
+            });
+
+            $('#radio_change').click(function() {
+                //$('input[name="gender"]:eq(0)').prop("checked",true);
+                $('input[name="gender"]').filter('input:radio[value="male"]').prop("checked",true);
+
+                /*
+                    name - 서버로 전달되는 변수명
+                    class - 그룹명
+                    id - 요소 URI
+                */
+                return false;
+            });
+        });
+
+    </script> -->
+        <script type="text/javascript">
+            /*
+            Web Storage
+            쿠키의 단점을 보와하기 위해 나온 저장소
+            Server, Session, Client Cookie
+
+            localStorage:
+            sessionStorage:
+
+            저장할 때는 저장할 데이터에 대한 키(KEy) 값 - setItem
+            불러올 때는 저장할 때 사용한 키(Key) 값을 이용해 불러온다. -getItem
+        */
+
+            var storage_key = "content";
+            $(function() {
+                $("#btn_save").click(function() {
+                    //폼 데이터를 문자열로 합치기
+                    var form_content = $("#content_form").serialize();
+                    form_content = decodeURIComponent(form_content); //한글 문제 해결
+
+                    //합친 문자열을 locarStorage에 저장
+                    localStorage.setItem(storage_key, form_content);
+
+                    //["content1=aaa", "content2=bbb", "content3=ccc"] 저장이 이렇게 되는데
+                    //content1 이런 것들이 id가 아닌 input의 name 값으로 저장된다
+                    //밑에서는 var key = content_data[0]; 이 코드로 저장된 content1 (name)을 불러 오는데
+                    //$("#" + key).val(data); 여기서는 id값으로 읽기 때문에 name값과 id값이 같야야함
+
+                    //폼 submit이 일어나지 않게
+                    return false;
+                });
+
+                $("#btn_load").click(function() {
+                    var form_content = localStorage.getItem(storage_key);
+                    var split_data = form_content.split("&");
+                    console.log(split_data);
+
+                    for (var i in split_data) {
+                        var content_data = split_data[i].split("=");
+                        var key = content_data[0];
+                        var data = content_data[1];
+                        $("#" + key).val(data);
+                        console.log(content_data);
+                    }
+                    return false;
+                    /*
+            var content = {}; //사전형으로 저장
+            content["content1"] = "1111";
+            content["content2"] = "2222";
+            content["content3"] = "3333";
+            console.log(content);
+
+            //사전형 변수를 문자열로 형변환 하기
+            var content_string = JSON.stringify(content);
+
+            //문자열이였던 데이터를 다시 사전형으로 형변환 하기
+            var content_string_load = localStorage.getItem(storage_key);
+            var content_dict = JSON.parse(content_string_load)
+
+            //사전형 전체 데이터를 하나씩 꺼내서 처리하기
+            for (var key in content_dict) {
+                $("#" +key).val(content_dict[key]);
+            }
+            (ex)----------------------------------
+            var storage_key = "content";
+            var userInfo = {};
+
+            $("#btn_save").click(function() {
+                var form_content = $("#join_form").serialize();
+                form_content = decodeURIComponent(form_content);
+
+                var split_data = form_content.split("&");
+                for (var i = 0; i < split_data.length; i++) {
+                    var content_data = split_data[i].split("=");
+                    var data0 = content_data[0];
+                    userInfo[data0] = content_data[1];
+                }
+                var form_content_Object = userInfo;
+                var content_string = JSON.stringify(form_content_Object);
+                localStorage.setItem(storage_key, content_string);
+
+                return false;
+            });
+            
+            $("#btn_load").click(function() {
+                var content_string_load = localStorage.getItem(storage_key);
+                var content_dict = JSON.parse(content_string_load);
+                for (var key in content_dict) {
+                    $("#" + key).val(content_dict[key]);
+                }
+                 return false;
+            });
+
+        */
+                });
+            });
+        </script>
+    </body>
+</html>
