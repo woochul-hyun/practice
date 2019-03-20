@@ -8,4 +8,5 @@ $(function() {
             $("#header").removeClass("inverted");
         }
     });
+    $(window).trigger("scroll");
 });
