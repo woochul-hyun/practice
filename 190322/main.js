@@ -1,3 +1,12 @@
+new Drift(document.querySelector(".mainImg"), {
+    paneContainer: document.querySelector(".inlineBlock2"),
+    inlinePane: 900,
+    inlineOffsetY: -85,
+    containInline: true,
+    hoverBoundingBox: true,
+    zoomFactor: 2
+});
+
 $(function() {
     var menuBar = $(".menuBar").offset();
 
