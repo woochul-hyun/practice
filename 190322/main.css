@@ -1,0 +1,56 @@
+.inlineBlock {
+    display: inline-block;
+}
+
+.inlineBlock1 {
+    height: 400px;
+    width: 40%;
+}
+
+.inlineBlock2 {
+    height: 400xp;
+    padding: 30px;
+    width: 58%;
+    float: right;
+}
+
+img.mainImg {
+    height: 400px;
+}
+
+.jbFixed {
+    position: fixed;
+    top: 0px;
+}
+
+.dummy {
+    height: 100px;
+    width: 100px;
+}
+
+.menuBar {
+    text-align: center;
+    background-color: lightblue;
+}
+
+li.nav-item {
+    width: 275px;
+}
+
+.header {
+    margin-bottom: 100px;
+}
+
+.productImg {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.showHide {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
