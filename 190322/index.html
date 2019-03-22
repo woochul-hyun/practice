@@ -12,15 +12,85 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script>
+            function imageZoom(imgID, resultID) {
+                var img, lens, result, cx, cy;
+                img = document.getElementById(imgID);
+                result = document.getElementById(resultID);
+                /*create lens:*/
+                lens = document.createElement("DIV");
+                lens.setAttribute("class", "img-zoom-lens");
+                /*insert lens:*/
+                img.parentElement.insertBefore(lens, img);
+                /*calculate the ratio between result DIV and lens:*/
+                cx = result.offsetWidth / lens.offsetWidth;
+                cy = result.offsetHeight / lens.offsetHeight;
+                /*set background properties for the result DIV:*/
+                result.style.backgroundImage = "url('" + img.src + "')";
+                result.style.backgroundSize =
+                    img.width * cx + "px " + img.height * cy + "px";
+                /*execute a function when someone moves the cursor over the image, or the lens:*/
+                lens.addEventListener("mousemove", moveLens);
+                img.addEventListener("mousemove", moveLens);
+                /*and also for touch screens:*/
+                lens.addEventListener("touchmove", moveLens);
+                img.addEventListener("touchmove", moveLens);
+                function moveLens(e) {
+                    var pos, x, y;
+                    /*prevent any other actions that may occur when moving over the image:*/
+                    e.preventDefault();
+                    /*get the cursor's x and y positions:*/
+                    pos = getCursorPos(e);
+                    /*calculate the position of the lens:*/
+                    x = pos.x - lens.offsetWidth / 2;
+                    y = pos.y - lens.offsetHeight / 2;
+                    /*prevent the lens from being positioned outside the image:*/
+                    if (x > img.width - lens.offsetWidth) {
+                        x = img.width - lens.offsetWidth;
+                    }
+                    if (x < 0) {
+                        x = 0;
+                    }
+                    if (y > img.height - lens.offsetHeight) {
+                        y = img.height - lens.offsetHeight;
+                    }
+                    if (y < 0) {
+                        y = 0;
+                    }
+                    /*set the position of the lens:*/
+                    lens.style.left = x + "px";
+                    lens.style.top = y + "px";
+                    /*display what the lens "sees":*/
+                    result.style.backgroundPosition =
+                        "-" + x * cx + "px -" + y * cy + "px";
+                }
+                function getCursorPos(e) {
+                    var a,
+                        x = 0,
+                        y = 0;
+                    e = e || window.event;
+                    /*get the x and y positions of the image:*/
+                    a = img.getBoundingClientRect();
+                    /*calculate the cursor's x and y coordinates, relative to the image:*/
+                    x = e.pageX - a.left;
+                    y = e.pageY - a.top;
+                    /*consider any page scrolling:*/
+                    x = x - window.pageXOffset;
+                    y = y - window.pageYOffset;
+                    return { x: x, y: y };
+                }
+            }
+        </script>
     </head>
     <body>
         <div class="container header">
-            <div class="inlineBlock inlineBlock1">
+            <div class="inlineBlock inlineBlock1 img-zoom-container">
                 <img
+                    id="myimage"
                     src="//thumbnail13.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2018/11/26/14/3/e0b27da1-2ba7-4aa4-bfca-cc90f2157502.jpg"
-                    alt=""
                     class="mainImg"
                 />
+                <div id="myresult" class="img-zoom-result"></div>
             </div>
             <div class="inlineBlock inlineBlock2">
                 <div class="inline2-1">
@@ -72,7 +142,7 @@
                         <a class="nav-link active" href="#body-1">상품상세</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">상품평</a>
+                        <a class="nav-link" href="#rate">상품평</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">상품문의</a>
@@ -157,7 +227,14 @@
                     상품정보 더보기
                 </button>
             </div>
-            <div class="dummy">dummy</div>
+            <hr />
+            <div id="rate">
+                <div>
+                    <span>상품평</span>
+                    <span>상품평 운영원칙</span>
+                </div>
+                <div></div>
+            </div>
             <div class="dummy">dummy</div>
             <div class="dummy">dummy</div>
             <div class="dummy">dummy</div>
@@ -186,5 +263,9 @@
         ></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="main.js"></script>
+        <script>
+            // Initiate zoom effect:
+            imageZoom("myimage", "myresult");
+        </script>
     </body>
 </html>

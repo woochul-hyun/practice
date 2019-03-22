@@ -68,3 +68,20 @@ td {
 .tableColor {
     background-color: #fafafa;
 }
+
+.img-zoom-container {
+    position: relative;
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 80px;
+    height: 80px;
+}
+
+.img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 400px;
+    height: 400px;
+}
