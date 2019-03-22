@@ -54,3 +54,17 @@ li.nav-item {
 .center {
     text-align: center;
 }
+
+table {
+    border-top: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+td {
+    border-bottom: 1px solid lightgrey;
+    padding: 5px;
+}
+
+.tableColor {
+    background-color: #fafafa;
+}
