@@ -92,3 +92,26 @@ td {
     height: 1200px;
     overflow: hidden;
 }
+
+.boarderBox {
+    border: 1px solid lightblue;
+    padding: 30px;
+}
+
+.rightAlign {
+    float: right;
+}
+
+.inquiryText {
+    text-align: center;
+}
+
+.inquiryTextSub {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.btn-outline-info {
+    line-height: 10px;
+    background-color: white;
+}
