@@ -28,4 +28,14 @@ $(function() {
             .show();
         $("#load").hide();
     });
+
+    $(".moreDetailButton").click(function() {
+        if ($("#removeBody-1-2-Image").hasClass("body-1-2-Image")) {
+            $("#removeBody-1-2-Image").removeClass("body-1-2-Image");
+            $(".moreDetailButton").html("상품정보 접기");
+        } else {
+            $("#removeBody-1-2-Image").addClass("body-1-2-Image");
+            $(".moreDetailButton").html("상품정보 더보기");
+        }
+    });
 });
