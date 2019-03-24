@@ -1,0 +1,117 @@
+.inlineBlock {
+    display: inline-block;
+}
+
+.inlineBlock1 {
+    height: 400px;
+    width: 40%;
+}
+
+.inlineBlock2 {
+    height: 400xp;
+    padding: 30px;
+    width: 58%;
+    float: right;
+}
+
+img.mainImg {
+    height: 400px;
+}
+
+.jbFixed {
+    position: fixed;
+    top: 0px;
+}
+
+.dummy {
+    height: 100px;
+    width: 100px;
+}
+
+.menuBar {
+    text-align: center;
+    background-color: lightblue;
+}
+
+li.nav-item {
+    width: 275px;
+}
+
+.header {
+    margin-bottom: 100px;
+}
+
+.productImg {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.showHide {
+    display: none;
+}
+
+.center {
+    text-align: center;
+}
+
+table {
+    border-top: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+td {
+    border-bottom: 1px solid lightgrey;
+    padding: 5px;
+}
+
+.tableColor {
+    background-color: #fafafa;
+}
+
+.drift-open {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 10px;
+    left: 450px;
+}
+
+#rate {
+    padding-top: 50px;
+}
+
+#MoreDetailBtn {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.body-1-2-Image {
+    height: 1200px;
+    overflow: hidden;
+}
+
+.boarderBox {
+    border: 1px solid lightblue;
+    padding: 30px;
+}
+
+.rightAlign {
+    float: right;
+}
+
+.inquiryText {
+    text-align: center;
+}
+
+.inquiryTextSub {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.btn-outline-info {
+    line-height: 10px;
+    background-color: white;
+}
