@@ -1,0 +1,21 @@
+<div class="tabs">
+  <ul class="tab-group">
+    <li
+      *ngFor="let tab of tabs; index as i"
+      class="tab"
+      [class.active]="tab.active"
+      (click)="changeNav(i)"
+    >
+      <i class="icon {{ tab.iconClass }}"></i>{{ tab.title }}
+    </li>
+  </ul>
+  <div class="tab-content-group">
+    <ng-container *ngFor="let tab of tabs">
+      <div
+        *ngIf="tab.active"
+        class="tab-content"
+        [innerHTML]="tab.content"
+      ></div>
+    </ng-container>
+  </div>
+</div>
