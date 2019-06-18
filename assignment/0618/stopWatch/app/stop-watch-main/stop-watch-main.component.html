@@ -1,0 +1,9 @@
+<div class="stop-watch">
+  <div class="display">
+    {{ minuteDisplay }}{{ semicolon }}{{ secondDisplay }}{{ semicolon
+    }}{{ millisecondDisplay }}
+  </div>
+  <button class="control" (click)="startStop()">
+    {{ buttonDisplay }}
+  </button>
+</div>

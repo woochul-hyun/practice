@@ -1,0 +1,17 @@
+<ul>
+  <li
+    *ngFor="let todo of sendTodos"
+    [ngStyle]="{
+      'text-decoration': todo.completed ? 'line-through' : 'none'
+    }"
+  >
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (click)="changeComplete(todo)"
+    />
+    {{ todo.content }}
+    <button (click)="removeCheckedTodo(todo)">X</button>
+  </li>
+</ul>
+<pre>{{ sendTodos | json }}</pre>

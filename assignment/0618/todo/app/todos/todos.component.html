@@ -1,0 +1,6 @@
+<app-todo-input (sendContent)="newTodo($event)"></app-todo-input>
+<app-todo-list
+  [sendTodos]="todos"
+  (updatedTodos)="updatedTodos($event)"
+  (removeTodo)="removeTodo($event)"
+></app-todo-list>

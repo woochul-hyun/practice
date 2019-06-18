@@ -1,0 +1,18 @@
+<div class="clock">
+  <div class="analog-clock">
+    <div
+      class="hour hand"
+      [ngStyle]="{ transform: 'rotate(' + secondDeg + 'deg)' }"
+    ></div>
+    <div
+      class="minute hand"
+      [ngStyle]="{ transform: 'rotate(' + minDeg + 'deg)' }"
+    ></div>
+    <div
+      class="second hand"
+      [ngStyle]="{ transform: 'rotate(' + hourDeg + 'deg)' }"
+    ></div>
+    <div class="center-circle"></div>
+  </div>
+  <div class="digital-clock">{{ digiTime }}</div>
+</div>
