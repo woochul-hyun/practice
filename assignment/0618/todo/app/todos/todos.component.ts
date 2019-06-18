@@ -31,7 +31,7 @@ export class TodosComponent implements OnInit {
   updatedTodos(todo) {
     this.todos.forEach(item => {
       if (item.id === todo.id) {
-        todo.completed = !todo.completed;
+        item.completed = !item.completed;
       }
     });
   }
